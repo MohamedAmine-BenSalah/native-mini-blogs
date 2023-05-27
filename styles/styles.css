@@ -1,0 +1,92 @@
+body {
+    background-color: #f5f0f0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  #container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    li {
+      background-color: #2096f8;
+      color:white;
+      padding: 1em;
+      border-radius: 15px;
+      display: flex;
+      justify-content: space-between;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin-right: 25px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: #2096f8;
+      text-align: start;
+    }
+    
+    #articles-list {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 3em;
+    }
+    
+    #articles-list li {
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    
+  
+    
+    #article-details {
+      margin-top: 20px;
+      margin-right: 33px;
+
+    }
+    
+    #author-details {
+      margin-top: 20px;
+      margin-right: 33px;
+    }
+    
+    #pagination {
+      margin-top: 20px;
+      text-align: center;
+      display: flex;
+      cursor: pointer;
+    }
+    
+    #pagination a {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      color: #333;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    
+    #pagination a:hover {
+      background-color: #eaeaea;
+    }
+    
+    #pagination a.active {
+      background-color: #333;
+      color: #fff;
+    }
+    
+  
+    #pagination a {
+      margin-right: 5px;
+      text-decoration: none;
+  }
+  
+  #pagination a.active {
+      font-weight: bold;
+  }
