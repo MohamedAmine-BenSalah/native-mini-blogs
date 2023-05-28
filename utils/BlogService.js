@@ -1,6 +1,6 @@
 import env from './env.js';
 
-export function displayArticles(articles, page) {
+export function displayBlogs(articles, page) {
     var articlesList = $('#articles-list');
     // empty the older articleList Conext 
     articlesList.empty();
@@ -15,7 +15,7 @@ export function displayArticles(articles, page) {
         var listItem = $('<li>');
         var articleLink = $('<a>').text(article.title);
         articleLink.click(function() {
-            showArticleDetails(article);
+            showBlogDetails(article);
         });
         listItem.append(articleLink);
         listItem.append(' Author id : ' + article.userId);
@@ -23,7 +23,7 @@ export function displayArticles(articles, page) {
     });
 }
 
-export function showArticleDetails(article) {
+export function showBlogDetails(article) {
     var articleDetails = $('#article-details');
     articleDetails.empty();
 
@@ -38,7 +38,7 @@ export function showArticleDetails(article) {
         }
     });
 }
-
+// get comments 
 export function showComments(articleId) {
     //  request to fetch comments for the article
     $.ajax({

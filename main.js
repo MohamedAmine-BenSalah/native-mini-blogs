@@ -1,4 +1,4 @@
-import { displayArticles } from './utils/BlogService.js';
+import { displayBlogs } from './utils/BlogService.js';
 import { showAuthorBlogs } from './utils/authorService.js';
 import {hideLoader,showLoader} from "./utils/Loader.js"
 import env from './utils/env.js';
@@ -8,9 +8,9 @@ $(document).ready(function() {
     var currentPage = 1; 
     showLoader();
 
-    fetchArticles(currentPage)
+    fetchBlogs(currentPage)
         .then(function(articles) {
-            displayArticles(articles, currentPage);
+            displayBlogs(articles, currentPage);
             addPagination(articles, currentPage);
         })
         .catch(function(error) {
@@ -21,7 +21,7 @@ $(document).ready(function() {
         });
 });
 
-function fetchArticles() {
+function fetchBlogs() {
     return new Promise(function(resolve, reject) {
         $.ajax({
             url: `${env.API_HOST_GLOBAL}/posts`,
@@ -46,10 +46,11 @@ function addPagination(articles, currentPage) {
     paginationContainer.empty();
 
     for (var i = 1; i <= totalPages; i++) {
+        // get the number of current page from HTML directly 
         var pageLink = $('<a>').text(i);
         pageLink.click(function() {
             var page = parseInt($(this).text());
-            displayArticles(articles, page);
+            displayBlogs(articles, page);
             addPagination(articles, page);
         });
 

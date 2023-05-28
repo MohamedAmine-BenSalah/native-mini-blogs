@@ -12,9 +12,6 @@ export function showAuthorBlogs(authorId) {
             authorArticles.forEach(function(article) {
                 var listItem = $('<li>');
                 var articleLink = $('<a>').text(article.title);
-                articleLink.click(function() {
-                    showArticleDetails(article);
-                });
                 listItem.append(articleLink);
                 authorArticlesList.append(listItem);
             });
