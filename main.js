@@ -17,6 +17,7 @@ $(document).ready(function() {
             console.log('Error:', error);
         })
         .finally(function() {
+            // stoping loader when promise settle 
             hideLoader();
         });
 });
@@ -75,7 +76,7 @@ $(document).on('click', 'li', function() {
         success: function(author) {
             var authorDetails = $('#author-details');
             authorDetails.empty();
-
+            // creating html nodes for author name / email / website 
             var authorInfo = $('<h3>').text(author.name);
             var authorEmail = $('<p>').text('Email: ' + author.email);
             var authorWebsite = $('<p>').text('Website: ' + author.website);

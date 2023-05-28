@@ -4,7 +4,7 @@ export function displayBlogs(articles, page) {
     var articlesList = $('#articles-list');
     // empty the older articleList Conext 
     articlesList.empty();
-    // blogs shown in a single page default : 5
+    // blogs shown in a single page default 5
     var blogsPerPage = 5;
     var startIndex = (page - 1) * blogsPerPage;
     var endIndex = startIndex + blogsPerPage;
