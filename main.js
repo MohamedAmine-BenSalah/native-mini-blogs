@@ -1,10 +1,12 @@
-import { displayArticles } from './utils/articleService.js';
+import { displayArticles } from './utils/BlogService.js';
 import { showAuthorBlogs } from './utils/authorService.js';
+import {hideLoader,showLoader} from "./utils/Loader.js"
 import env from './utils/env.js';
 
 
 $(document).ready(function() {
     var currentPage = 1; 
+    showLoader();
 
     fetchArticles(currentPage)
         .then(function(articles) {
@@ -13,6 +15,9 @@ $(document).ready(function() {
         })
         .catch(function(error) {
             console.log('Error:', error);
+        })
+        .finally(function() {
+            hideLoader();
         });
 });
 
@@ -33,9 +38,11 @@ function fetchArticles() {
 
 function addPagination(articles, currentPage) {
     var blogsPerPage = 5; 
+    // setting total pages to render all pagination
     var totalPages = Math.ceil(articles.length / blogsPerPage);
-
+    // creating pagination element
     var paginationContainer = $('#pagination');
+    // if there was un update to the pagination it will be reseted
     paginationContainer.empty();
 
     for (var i = 1; i <= totalPages; i++) {
@@ -47,6 +54,7 @@ function addPagination(articles, currentPage) {
         });
 
         if (i === currentPage) {
+            // if i is the current page we change the style =>
             pageLink.addClass('active');
         }
 
@@ -55,7 +63,7 @@ function addPagination(articles, currentPage) {
 }
 
 $(document).on('click', 'li', function() {
-    console.log($(this).text().split(' : ')[1])
+    // getting the id of the other with an onclick that retrives the id from the html text 
     var authorId = $(this).text().split(' : ')[1];
 
     
@@ -76,3 +84,4 @@ $(document).on('click', 'li', function() {
         }
     });
 });
+
